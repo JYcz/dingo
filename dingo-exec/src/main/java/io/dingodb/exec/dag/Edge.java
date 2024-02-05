@@ -38,15 +38,15 @@ public class Edge {
         this.next = next;
     }
 
-    public boolean transformToNext(Object[] tuple) {
+    public synchronized boolean transformToNext(Object[] tuple) {
         return transformToNext(Context.builder().build(), tuple);
     }
 
-    public boolean transformToNext(Context context, Object[] tuple) {
+    public synchronized boolean transformToNext(Context context, Object[] tuple) {
         return OperatorFactory.getInstance(next.getOp()).push(context.setPin(previous.getPin()), tuple, next);
     }
 
-    public void fin(Fin fin) {
+    public synchronized void fin(Fin fin) {
         OperatorFactory.getInstance(next.getOp()).fin(previous.getPin(), fin, next);
     }
 

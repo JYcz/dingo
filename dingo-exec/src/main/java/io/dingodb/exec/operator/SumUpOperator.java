@@ -29,14 +29,14 @@ public class SumUpOperator extends SoleOutOperator {
     public static final SumUpOperator INSTANCE = new SumUpOperator();
 
     @Override
-    public synchronized boolean push(Context context, Object @NonNull [] tuple, Vertex vertex) {
+    public boolean push(Context context, Object @NonNull [] tuple, Vertex vertex) {
         SumUpParam param = vertex.getParam();
         param.accumulate((long) tuple[0]);
         return true;
     }
 
     @Override
-    public synchronized void fin(int pin, Fin fin, Vertex vertex) {
+    public void fin(int pin, Fin fin, Vertex vertex) {
         SumUpParam param = vertex.getParam();
         Edge edge = vertex.getSoleEdge();
         edge.transformToNext(new Object[]{param.getSum()});

@@ -39,7 +39,7 @@ public final class AggregateOperator extends SoleOutOperator {
     }
 
     @Override
-    public  void fin(int pin, Fin fin, Vertex vertex) {
+    public void fin(int pin, Fin fin, Vertex vertex) {
         AggregateParams params = vertex.getParam();
         Edge edge = vertex.getSoleEdge();
         for (Object[] t : params.getCache()) {

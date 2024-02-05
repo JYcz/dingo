@@ -209,7 +209,7 @@ public class ShowLocksOperation implements QueryOperation {
             lock[TXN_INDEX] = txnId.toString();
             lock[TABLE_INDEX] = MetaService.root().getTable(tableId).name;
             lock[SCHEMA_INDEX] = getSchema(tableId);
-            lock[STATUS_INDEX] = lockFuture.isDone() && !lockFuture.isCancelled() ? LOCKED : BLOCK;
+            lock[STATUS_INDEX] = lockFuture == null ? "-" : lockFuture.isDone() && !lockFuture.isCancelled() ? LOCKED : BLOCK;
             lock[KEY_INDEX] = "-";
             lock[TYPE_INDEX] = tableLock.getType() == TABLE ? TABLE_TYPE : ROW_TYPE;
             lock[DURATION_INDEX] = String.valueOf(tsoService.timestamp(tso) - tsoService.timestamp(txnId.seq));

@@ -40,7 +40,7 @@ public abstract class FanOutOperator extends AbstractOperator {
     }
 
     @Override
-    public  void fin(int pin, Fin fin, Vertex vertex) {
+    public void fin(int pin, Fin fin, Vertex vertex) {
         if (log.isDebugEnabled()) {
             log.debug("Got FIN, push it to {} outputs", vertex.getOutList().size());
         }

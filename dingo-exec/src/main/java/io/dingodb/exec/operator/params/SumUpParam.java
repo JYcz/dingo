@@ -32,7 +32,7 @@ public class SumUpParam extends AbstractParams {
     public SumUpParam() {
     }
 
-    public void accumulate(long tuple) {
+    public synchronized void accumulate(long tuple) {
         sum += tuple;
     }
 }

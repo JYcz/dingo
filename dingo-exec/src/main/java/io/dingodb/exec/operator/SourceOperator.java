@@ -39,7 +39,7 @@ public abstract class SourceOperator extends SoleOutOperator {
     public abstract boolean push(Vertex vertex);
 
     @Override
-    public  void fin(int pin, Fin fin, Vertex vertex) {
+    public void fin(int pin, Fin fin, Vertex vertex) {
         SourceParam param = (SourceParam) vertex.getData();
         if (fin instanceof FinWithException) {
             vertex.getOutList().forEach(e -> e.fin(fin));
